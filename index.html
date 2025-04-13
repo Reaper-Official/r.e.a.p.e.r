@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projet R.E.A.P.E.R.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #1a1a1a;
+      color: #d0ffbf;
+      padding: 2em;
+    }
+
+    h1, h2, h3 {
+      color: #9eff9e;
+      border-left: 5px solid #2e7d32;
+      padding-left: 0.5em;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.2em;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      margin-top: 1.5em;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-top: 1em;
+    }
+
+    p, li {
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: "🟢 ";
+      padding-left: 2em;
+    }
+
+    .acronym span {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    .box {
+      border: 1px solid #2e7d32;
+      background: rgba(0, 100, 0, 0.1);
+      padding: 1em;
+      margin-bottom: 1em;
+    }
+
+    .table {
+      display: grid;
+      grid-template-columns: 1fr 1fr 3fr;
+      gap: 0.5em;
+      margin-top: 1em;
+    }
+
+    .table div {
+      padding: 0.3em;
+      border: 1px solid #2e7d32;
+      background-color: rgba(46, 125, 50, 0.1);
+    }
+
+    footer {
+      margin-top: 2em;
+      font-style: italic;
+      color: #a5d6a7;
+    }
+
+    .emoji {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛰️ Projet R.E.A.P.E.R.</h1>
+  <p><strong>Resilient Encrypted Architecture for Packetized Emission & Relay</strong></p>
+
+  <h2>🧭 Présentation Générale</h2>
+  <p>R.E.A.P.E.R. est un système de communication mobile, crypté et distribué, conçu pour les environnements opérationnels hostiles, dégradés ou surveillés.</p>
+  <p>Il repose sur le découpage de messages (texte, audio, vidéo) en fragments chiffrés appelés <strong>packets</strong>, lesquels sont ensuite acheminés via un réseau de relais physiques embarqués.</p>
+  <p>Le récepteur, légitime et authentifié via une carte cryptographique physique, peut reconstituer le message uniquement s’il dispose d’un nombre suffisant de fragments.</p>
+
+  <h2>🔠 Signification de l'acronyme</h2>
+  <div class="acronym">
+    <span><strong>R</strong> – Resilient : Fonctionne en conditions extrêmes, sans réseau centralisé.</span>
+    <span><strong>E</strong> – Encrypted : Chiffrement robuste, lié à une carte d'authentification physique.</span>
+    <span><strong>A</strong> – Architecture : Système modulaire, décentralisé, adaptable aux terrains.</span>
+    <span><strong>P</strong> – Packetized : Messages divisés en fragments autonomes et numérotés.</span>
+    <span><strong>E</strong> – Emission : Envoi des fragments via canaux multiples et relais mobiles.</span>
+    <span><strong>R</strong> – Relay : Transmission à travers un réseau de nœuds portables.</span>
+  </div>
+
+  <h2>⚙️ Fonctionnement du système</h2>
+  <h3>1. Capture & Fragmentation</h3>
+  <ul>
+    <li>L'utilisateur saisit ou enregistre un message.</li>
+    <li>Le message est fragmenté en <em>n</em> paquets.</li>
+    <li>Chaque paquet est chiffré avec une clé dérivée de la carte + nonce dynamique.</li>
+  </ul>
+
+  <h3>2. Distribution via les relais mobiles</h3>
+  <ul>
+    <li>Paquets envoyés à des nœuds-relais (serveurs portables dans sacs à dos).</li>
+    <li>Réseau mesh local (Wi-Fi ad hoc, LoRa, radio numérique).</li>
+    <li>Aucun nœud ne détient l’ensemble du message.</li>
+  </ul>
+
+  <h3>3. Récupération & Réassemblage</h3>
+  <ul>
+    <li>Le destinataire collecte les fragments via sa carte d’authentification.</li>
+    <li>Réassemblage via métadonnées : hash, index, timestamp.</li>
+  </ul>
+
+  <h2>💣 Atouts Stratégiques</h2>
+  <ul>
+    <li>🔇 Silencieux : Pas de communication directe identifiable.</li>
+    <li>🧩 Fragmentation : Un fragment seul est inutilisable.</li>
+    <li>🛡️ Carte physique obligatoire.</li>
+    <li>🛰️ Fonctionne sans infrastructure réseau.</li>
+    <li>🔄 Auto-destruction programmable des fragments.</li>
+    <li>📡 Portabilité totale : chaque opérateur est un relais.</li>
+  </ul>
+
+  <h2>🛠️ Faisabilité Technique (TRL : 5-6)</h2>
+  <div class="table">
+    <div><strong>Élément</strong></div>
+    <div><strong>Faisabilité</strong></div>
+    <div><strong>Détail</strong></div>
+
+    <div>Fragmentation + Chiffrement</div>
+    <div>✅ Mature</div>
+    <div>AES-256, libsodium, etc.</div>
+
+    <div>Carte physique</div>
+    <div>✅ Mature</div>
+    <div>YubiKey, carte à puce, NFC token</div>
+
+    <div>Mini-serveurs</div>
+    <div>✅ En production</div>
+    <div>Raspberry Pi, Jetson Nano</div>
+
+    <div>Mesh Networking</div>
+    <div>⚠️ Modéré</div>
+    <div>Wi-Fi P2P, LoRa, radio numérique</div>
+
+    <div>Synchronisation</div>
+    <div>✅ Solide</div>
+    <div>Hash + index + protocole</div>
+
+    <div>Interface utilisateur</div>
+    <div>🔧 À développer</div>
+    <div>App légère ou CLI</div>
+
+    <div>Robustesse terrain</div>
+    <div>⚠️ À renforcer</div>
+    <div>Coque durcie, autonomie batterie</div>
+  </div>
+
+  <div class="box">
+    💡 <strong>Recommandation :</strong><br/>
+    Prototype possible en 3 mois avec une équipe de 3 devs et 2 techs hardware.<br/>
+    Déploiement terrain initial : équipes de 4-6 personnes, 1 relay/2 opérateurs.
+  </div>
+
+  <h2>🎯 Cas d’usage concrets</h2>
+  <ul>
+    <li>Forces spéciales en zone hostile</li>
+    <li>Résistance numérique en territoires surveillés</li>
+    <li>ONG ou journalistes en pays sous surveillance</li>
+    <li>Communication post-catastrophe (réseaux HS)</li>
+  </ul>
+
+  <footer>
+    ✅ <strong>Conclusion :</strong><br/>
+    R.E.A.P.E.R. est une solution mobile, furtive et modulaire pour les communications critiques.<br/>
+    Il garantit l'inaccessibilité et l'anonymat des messages sans la clé physique légitime.<br/>
+    <strong>👉 Techniquement faisable. 🎯 Tactiquement redoutable.</strong>
+  </footer>
+
+</body>
+</html>
